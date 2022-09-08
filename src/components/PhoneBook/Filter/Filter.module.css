@@ -1,0 +1,19 @@
+.label {
+  display: block;
+  font-size: 24px;
+  line-height: 1.75;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.input {
+  display: block;
+  padding: 5px 20px 5px 10px;
+  /* height: 25px; */
+  font-size: 18px;
+  line-height: 1.25;
+  border-color: #2ee59d;
+  border-radius: 25px;
+  outline: none;
+  /* width: 100%; */
+}

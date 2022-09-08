@@ -1,0 +1,11 @@
+.section {
+  padding: 0 15px;
+}
+
+.header {
+  padding: 15px;
+  color: #092828;
+  font-size: 32px;
+  line-height: 1.75;
+  letter-spacing: 0.03rem;
+}
