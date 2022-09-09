@@ -11,6 +11,7 @@ export const theme = {
       sectionTitle: '#092828',
       primaryText: '#414141',
       secondaryText: '',
+      accent: '#2ee59d',
     },
 
     button: {

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledFilterInput = styled.input`
   display: block;
-
   padding: ${p =>
     `${p.theme.space[3]}px ` +
     `${p.theme.space[2] * 3}px ` +
@@ -18,9 +17,10 @@ export const StyledFilterInput = styled.input`
 `;
 
 export const StyledFilterLabel = styled.label`
-  display: flex;
-  justify-content: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${p => p.theme.colors.form.formText};
   font-size: ${p => p.theme.fontSizes.xl};
   line-height: ${p => p.theme.lineHeights.form};
@@ -30,7 +30,7 @@ export const StyledFilterLabel = styled.label`
 
 export const StyledSearchButton = styled.button`
   position: absolute;
-  /* right: 0px; */
+  right: 20%;
   border-radius: ${p => p.theme.radii.round};
   padding: ${p => `${p.theme.space[3]}px`};
   /* min-width: ${p => `${p.theme.space[7]}px`}; */

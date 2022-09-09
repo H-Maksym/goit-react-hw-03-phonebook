@@ -9,7 +9,9 @@ import ContactForm from 'components/PhoneBook/ContactForm';
 import Filter from 'components/PhoneBook/Filter';
 import ContactList from 'components/PhoneBook/ContactList';
 import Notification from 'components/PhoneBook/Notification';
-import  Box  from 'components/PhoneBook/Box';
+import Box from 'components/PhoneBook/Box';
+
+import {notifyConfigs} from 'config/notifyConfig'
 
 
 // import ProgComponents from 'components/PhoneBook';
@@ -43,7 +45,7 @@ export default class App extends Component {
     };
 
     if (this.existContact(contact.name)) {
-      return Notify.info('Such a contact already exists');
+      return Notify.info('Such a contact already exists',notifyConfigs);
     }
 
     this.setState(({ contacts }) => ({

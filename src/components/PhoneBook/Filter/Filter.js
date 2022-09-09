@@ -6,6 +6,7 @@ import {
   StyledSearchButton,
 } from './Filter.styled';
 import { BsSearch } from 'react-icons/bs';
+
 // import { Box } from 'components/PhoneBook/Box/Box';
 // import Button from 'components/PhoneBook/Button';
 
