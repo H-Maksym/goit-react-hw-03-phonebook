@@ -1,7 +1,7 @@
-import s from './ContactList.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ContactItem from 'components/PhoneBook/ContactList/ContactItem';
+import { StyledContactItem } from './ContactList.styled';
 
 export default class ContactList extends Component {
   render() {
@@ -10,14 +10,14 @@ export default class ContactList extends Component {
       <ul>
         {contacts.map(({ id, name, number }) => {
           return (
-            <li key={id} className={s.item}>
+            <StyledContactItem key={id}>
               <ContactItem
                 id={id}
                 name={name}
                 number={number}
                 onDelContact={onDelContact}
               />
-            </li>
+            </StyledContactItem>
           );
         })}
       </ul>

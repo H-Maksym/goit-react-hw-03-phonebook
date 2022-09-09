@@ -1,14 +1,20 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { nanoid } from 'nanoid';
 
 import React, { Component } from 'react';
-import Section from 'components/PhoneBook/Section';
 
+//* Components 
+import Title from 'components/PhoneBook/Title';
 import ContactForm from 'components/PhoneBook/ContactForm';
 import Filter from 'components/PhoneBook/Filter';
-
 import ContactList from 'components/PhoneBook/ContactList';
 import Notification from 'components/PhoneBook/Notification';
-import { nanoid } from 'nanoid';
+import  Box  from 'components/PhoneBook/Box';
+
+
+// import ProgComponents from 'components/PhoneBook';
+// const {Section, ContactForm,Filter,ContactList,Notification}=ProgComponents;
+
 
 export default class App extends Component {
   state = {
@@ -74,30 +80,39 @@ export default class App extends Component {
     const { contacts, filter } = this.state;
     // const visibleContacts = this.getVisibleContacts();
     return (
-      <div
-        style={{
-          width: '450px',
-          height: 'auto',
-          padding: '20px',
-          // minHeight: '100vh',
-          // display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          // alignItems: 'center',
-          // fontSize: 30,
-          // color: '#010101',
-        }}
-      >
-        <h1>React homework</h1>
-        <Section title="Phonebook">
+    <>
+        <Box
+          mx='auto'
+          px={15}
+          py={0}
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          width={450} as='section'
+        >
+          <h1>React</h1>
+          <Title>
+            Phonebook
+          </Title>
           <ContactForm title="" onSubmit={this.formSubmitHandler} />
-        </Section>
-
-        <Section title="Contacts">
+        </Box>
+        
+        <Box
+          mx='auto'
+          px={15}
+          py={0}
+          display='flex'
+          flexDirection='column'
+          // alignItems='center'
+          width={450}
+          as='section'
+        >
+          <Title>
+            Contacts
+          </Title>
           {contacts.length ? (
             <>
               <Filter
-                title="search"
                 name="filter"
                 value={filter}
                 changeFilter={this.changeFilter}
@@ -110,8 +125,8 @@ export default class App extends Component {
           ) : (
             <Notification message="There are no contacts" />
           )}
-        </Section>
-      </div>
+        </Box>
+    </>
     );
   }
 }

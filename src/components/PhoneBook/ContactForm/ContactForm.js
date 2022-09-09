@@ -1,7 +1,8 @@
-import s from './ContactForm.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from 'components/PhoneBook/Input';
+import Button from 'components/PhoneBook/Button';
+import { FormContact } from './ContactForm.styled';
 
 export default class ContactForm extends Component {
   state = {
@@ -35,7 +36,7 @@ export default class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form className={s.list} onSubmit={this.handleSubmit}>
+      <FormContact onSubmit={this.handleSubmit}>
         {/* {title && <h2>{title}</h2>} */}
         <Input
           type="text"
@@ -55,10 +56,8 @@ export default class ContactForm extends Component {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         />
-        <button className={s.btn} type="submit">
-          Add contact
-        </button>
-      </form>
+        <Button type="submit">Add contact</Button>
+      </FormContact>
     );
   }
 }

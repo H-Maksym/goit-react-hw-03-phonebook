@@ -1,16 +1,14 @@
-import s from './Input.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { LabelStyled, InputStyled } from './Input.styled';
 export default class Input extends Component {
   render() {
     const { type, titleInput, name, value, pattern, title, handleInputChange } =
       this.props;
     return (
-      <label className={s.label}>
+      <LabelStyled>
         {titleInput}
-        <input
-          className={s.input}
+        <InputStyled
           type={type}
           name={name}
           value={value}
@@ -19,7 +17,7 @@ export default class Input extends Component {
           title={title}
           required
         />
-      </label>
+      </LabelStyled>
     );
   }
 }
