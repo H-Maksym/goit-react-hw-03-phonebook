@@ -8,7 +8,7 @@ export const theme = {
     secondaryBackground: '',
 
     text: {
-      sectionTitle: '#092828',
+      sectionTitle: '#FFAC1C',
       primaryText: '#414141',
       secondaryText: '',
       accent: '#2ee59d',
@@ -42,6 +42,7 @@ export const theme = {
     heading: 'inherit',
     monospace: 'Menlo, monospace',
   },
+
   textTransform: {
     cap: 'capitalize',
     lowCase: 'lowercase',
@@ -80,10 +81,12 @@ export const theme = {
     sectionTitle: 1.75,
     text: 1.25,
   },
+
   borders: {
     none: 'none',
     normal: '1px solid',
   },
+
   radii: {
     none: '0',
     sm: '4px',

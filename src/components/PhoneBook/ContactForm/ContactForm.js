@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import Input from 'components/PhoneBook/Input';
 import Button from 'components/PhoneBook/Button';
 import { FormContact } from './ContactForm.styled';
+import { IoIosClose } from 'react-icons/io';
+import ButtonIcon from 'components/PhoneBook/ButtonIcon';
+import Box from 'components/PhoneBook/Box';
 
 export default class ContactForm extends Component {
   state = {
@@ -34,10 +37,21 @@ export default class ContactForm extends Component {
 
   render() {
     const { name, number } = this.state;
+    const { title, toggleModal } = this.props;
 
     return (
       <FormContact onSubmit={this.handleSubmit}>
-        {/* {title && <h2>{title}</h2>} */}
+        {title && <h3>{title}</h3>}
+        <Box position="absolute" top="0" right="35px">
+          <ButtonIcon
+            type="button"
+            onClick={toggleModal}
+            aria-label="close modal"
+          >
+            <IoIosClose size="40px" />
+          </ButtonIcon>
+        </Box>
+
         <Input
           type="text"
           titleInput="name"

@@ -10,6 +10,8 @@ import Filter from 'components/PhoneBook/Filter';
 import ContactList from 'components/PhoneBook/ContactList';
 import Notification from 'components/PhoneBook/Notification';
 import Box from 'components/PhoneBook/Box';
+import Modal from 'components/PhoneBook/Modal';
+import AddContact from 'components/PhoneBook/AddContact'
 
 import {notifyConfigs} from 'config/notifyConfig'
 
@@ -21,13 +23,31 @@ import {notifyConfigs} from 'config/notifyConfig'
 export default class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
+    showModal: false,
   };
+
+  /**get contacts from Locale Storage */  
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    if(parsedContacts){
+      this.setState({ contacts: parsedContacts });
+      }
+  }
+
+  /**set contacts from Locale Storage */  
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+       localStorage.setItem('contacts',JSON.stringify(this.state.contacts))
+     }
+  }
+  
 
   /** checks if a contact exists in contacts list*/
   existContact = name => {
@@ -55,10 +75,19 @@ export default class App extends Component {
 
   /** event handler filter*/
   changeFilter = e => {
-    this.setState({
+      this.setState({
       filter: e.currentTarget.value.trim(),
     });
   };
+
+    /** event handler filter*/
+
+  handleSearch = e => {
+    console.log("clickBtn");
+      // this.setState({
+      // filter: e.currentTarget.value.trim(),
+      // });
+  }
 
   /** calculated value for filter*/
   getVisibleContacts = () => {
@@ -77,9 +106,19 @@ export default class App extends Component {
     }));
   };
 
+  handleIconClose = e => {
+    this.toggleModal();
+  }
+
+  toggleModal = () => {
+    this.setState(({showModal}) => ({
+      showModal: !showModal
+    }))
+  }
+
   /** render*/
   render() {
-    const { contacts, filter } = this.state;
+    const { contacts, filter,showModal} = this.state;
     // const visibleContacts = this.getVisibleContacts();
     return (
     <>
@@ -96,7 +135,10 @@ export default class App extends Component {
           <Title>
             Phonebook
           </Title>
-          <ContactForm title="" onSubmit={this.formSubmitHandler} />
+          <AddContact  toggleModal={this.toggleModal} />
+        {showModal&& <Modal onClose={this.toggleModal}>
+            <ContactForm title="Fill in the contact details" onSubmit={this.formSubmitHandler} toggleModal={ this.toggleModal} />
+          </Modal>}
         </Box>
         
         <Box
@@ -118,6 +160,7 @@ export default class App extends Component {
                 name="filter"
                 value={filter}
                 changeFilter={this.changeFilter}
+                handleSearch={this.handleSearch}
               />
               <ContactList
                 contacts={this.getVisibleContacts()}

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContactItem = styled.li`
   display: flex;
-  /* flex-direction: row; */
+  align-items: center;
   justify-content: space-between;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};

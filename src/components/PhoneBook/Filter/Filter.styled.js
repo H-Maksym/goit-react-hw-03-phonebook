@@ -28,17 +28,17 @@ export const StyledFilterLabel = styled.label`
   font-weight: ${p => p.theme.fontWeights.medium};
 `;
 
-export const StyledSearchButton = styled.button`
-  position: absolute;
-  right: 20%;
-  border-radius: ${p => p.theme.radii.round};
-  padding: ${p => `${p.theme.space[3]}px`};
-  /* min-width: ${p => `${p.theme.space[7]}px`}; */
-  text-transform: ${p => p.theme.textTransform.cap};
-  font-size: ${p => p.theme.fontSizes.l};
-  color: ${p => p.theme.colors.button.text};
-  background-color: ${p => p.theme.colors.button.primaryBtnBackground};
-  border: ${p => p.theme.borders.none};
+// export const StyledSearchButton = styled.button`
+//   position: absolute;
+//   right: 20%;
+//   border-radius: ${p => p.theme.radii.round};
+//   padding: ${p => `${p.theme.space[3]}px`};
+//   /* min-width: ${p => `${p.theme.space[7]}px`}; */
+//   text-transform: ${p => p.theme.textTransform.cap};
+//   font-size: ${p => p.theme.fontSizes.l};
+//   color: ${p => p.theme.colors.button.text};
+//   background-color: ${p => p.theme.colors.button.primaryBtnBackground};
+//   border: ${p => p.theme.borders.none};
 
-  /* transition: 250ms; */
-`;
+//   /* transition: 250ms; */
+// `;

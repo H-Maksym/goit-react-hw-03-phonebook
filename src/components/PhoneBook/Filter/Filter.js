@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  StyledFilterLabel,
-  StyledFilterInput,
-  StyledSearchButton,
-} from './Filter.styled';
+import { StyledFilterLabel, StyledFilterInput } from './Filter.styled';
+import ButtonIcon from 'components/PhoneBook/ButtonIcon';
 import { BsSearch } from 'react-icons/bs';
 
-// import { Box } from 'components/PhoneBook/Box/Box';
-// import Button from 'components/PhoneBook/Button';
+import Box from 'components/PhoneBook/Box';
 
 export default class Filter extends Component {
   render() {
-    const { title = '', name, value, changeFilter } = this.props;
+    const { title = '', name, value, changeFilter, handleSearch } = this.props;
     return (
-      // <Box position="relative">
       <StyledFilterLabel>
         {title}
         <StyledFilterInput name={name} value={value} onChange={changeFilter} />
-        <StyledSearchButton type="submit">
-          <BsSearch />
-        </StyledSearchButton>
+        <Box position="absolute" right="20%">
+          <ButtonIcon
+            type="submit"
+            onClick={handleSearch}
+            aria-label="search button"
+          >
+            <BsSearch size="20px" />
+          </ButtonIcon>
+        </Box>
       </StyledFilterLabel>
-      // </Box>
     );
   }
 }
