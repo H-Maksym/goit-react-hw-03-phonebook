@@ -79,4 +79,5 @@ export default class ContactForm extends Component {
 ContactForm.propTypes = {
   title: PropTypes.string,
   onSubmit: PropTypes.func,
+  toggleModal: PropTypes.func,
 };

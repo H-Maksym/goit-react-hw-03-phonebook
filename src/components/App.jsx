@@ -21,6 +21,7 @@ import {notifyConfigs} from 'config/notifyConfig'
 
 
 export default class App extends Component {
+
   state = {
     contacts: [
       // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -80,8 +81,7 @@ export default class App extends Component {
     });
   };
 
-    /** event handler filter*/
-
+  /** event handler filter*/
   handleSearch = e => {
     console.log("clickBtn");
       // this.setState({
