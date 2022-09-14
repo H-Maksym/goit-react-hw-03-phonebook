@@ -3,3 +3,5 @@
 // export { default } from 'components/PhoneBook/Filter';
 // export { default } from 'components/PhoneBook/ContactList';
 // export { default } from 'components/PhoneBook/Notification';
+
+// const App = {}
